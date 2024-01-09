@@ -1,6 +1,6 @@
-from base_model import BaseModel
+from models.base_model import BaseModel
 from peewee import *
-from brand import Brand
+from models.brand import Brand
 
 
 class Model(BaseModel):

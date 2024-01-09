@@ -1,12 +1,11 @@
-from base_model import BaseModel
+from models.base_model import BaseModel
 from peewee import *
-from vehicle_type import Vehicle_Type
-from engine import Engine
+from models.engine import Engine
+from models.model import Model
 
-class Technical_Specs(BaseModel):
+class Vehicle_Specs(BaseModel):
     id_specs = AutoField()
     version = CharField()
-    vehicle_type = ForeignKeyField(Vehicle_Type, backref='types')
     model = ForeignKeyField(Model, backref='models')
     doors = IntegerField()
     seats = IntegerField()

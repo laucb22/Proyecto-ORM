@@ -1,9 +1,11 @@
 from peewee import *
 from config.database import DB
-from models import brand, engine, model, status, technical_specs, vehicle, vehicle_type
+from models import brand, engine, status, vehicle, vehicle_type, model, vehicle_specs
 
 def generate_tables():
     DB.connect()
     DB.create_tables([brand.Brand, engine.Engine, status.Status, model.Model, vehicle.Vehicle, vehicle_type.Vehicle_Type,
-                    technical_specs.Technical_Specs])
+                    vehicle_specs.Vehicle_Specs])
     DB.close()
+
+
