@@ -6,7 +6,6 @@ from models.model import Model
 class Vehicle_Specs(BaseModel):
     id_specs = AutoField()
     version = CharField()
-    model = ForeignKeyField(Model, backref='models')
     doors = IntegerField()
     seats = IntegerField()
     height = IntegerField()
