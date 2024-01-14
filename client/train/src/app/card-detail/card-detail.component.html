@@ -2,6 +2,11 @@
   <form>
       <div class="row">
           <h4 class="text-center mb-3">Vehículo</h4>
+          <div class="col-6">
+            <div>
+                <img [src]="vehicle.img_url" class="img-fluid" style="max-height: min-content;">
+            </div>
+          </div>
           <div class="col">
               <div class="row mb-3">
                   <div class="col-2">
@@ -16,19 +21,17 @@
                       <label for="inputColor" class="col col-form-label fw-bold">Color:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputColor" [value]="vehicle.Color" readonly>
+                      <input type="text" class="form-control" id="inputColor" [value]="vehicle.color" readonly>
                   </div>
               </div>
               <div class="row mb-3">
                   <div class="col-2">
-                      <label for="inputImg" class="col col-form-label fw-bold">Imagen URL:</label>
+                      <label for="inputImg" class="col col-form-label fw-bold">Marca:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputImg" [value]="vehicle.img_url" readonly>
+                      <input type="text" class="form-control" id="inputImg" [value]="vehicle.model.brand.name" readonly>
                   </div>
               </div>
-          </div>
-          <div class="col">
               <div class="row mb-3">
                   <div class="col-2">
                       <label for="inputPrice" class="col col-form-label fw-bold">Precio:</label>
@@ -50,7 +53,7 @@
                       <label for="inputModel" class="col col-form-label fw-bold">Modelo:</label>
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" id="inputStatus" [value]="vehicle.status.status" readonly>                    
+                    <input type="text" class="form-control" id="inputStatus" [value]="vehicle.model.name" readonly>                    
                   </div>
               </div>
           </div>
@@ -64,7 +67,7 @@
                       <label for="inputVersion" class="col col-form-label fw-bold">Versión:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputVersion">
+                      <input type="text" class="form-control" id="inputVersion" [value]="vehicle.specs.version" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -72,7 +75,7 @@
                       <label for="inputDoors" class="col col-form-label fw-bold">Puertas:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputDoors">
+                      <input type="text" class="form-control" id="inputDoors" [value]="vehicle.specs.doors" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -80,7 +83,7 @@
                       <label for="inputSeats" class="col col-form-label fw-bold">Plazas:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputSeats">
+                      <input type="text" class="form-control" id="inputSeats" [value]="vehicle.specs.seats" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -88,7 +91,7 @@
                       <label for="inputHeight" class="col col-form-label fw-bold">Altura:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputHeight">
+                      <input type="text" class="form-control" id="inputHeight" [value]="vehicle.specs.height" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -96,7 +99,7 @@
                       <label for="inputWidth" class="col col-form-label fw-bold">Anchura:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputWidth">
+                      <input type="text" class="form-control" id="inputWidth" [value]="vehicle.specs.width" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -104,7 +107,7 @@
                       <label for="inputLength" class="col col-form-label fw-bold">Largura:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputLength">
+                      <input type="text" class="form-control" id="inputLength" [value]="vehicle.specs.length" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -112,7 +115,7 @@
                       <label for="inputMaxPot" class="col col-form-label fw-bold">Potencia máx:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputMaxPot">
+                      <input type="text" class="form-control" id="inputMaxPot" [value]="vehicle.specs.max_potency" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -120,7 +123,7 @@
                       <label for="inputModelName" class="col col-form-label fw-bold">Tracción:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputModelName">
+                      <input type="text" class="form-control" id="inputModelName" [value]="vehicle.specs.wheel_drive" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -128,7 +131,7 @@
                       <label for="inputAddons" class="col col-form-label fw-bold">Modificaciones:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputAddons">
+                      <input type="text" class="form-control" id="inputAddons" [value]="vehicle.specs.addons" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -136,7 +139,7 @@
                       <label for="inputModelName" class="col col-form-label fw-bold">Observaciones:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputModelName">
+                      <input type="text" class="form-control" id="inputModelName" [value]="vehicle.specs.notes" readonly>
                   </div>
               </div>
           </div>
@@ -146,13 +149,7 @@
                       <label for="inputType" class="col col-form-label fw-bold">Tipo:</label>
                   </div>
                   <div class="col">
-                      <select class="form-select" aria-label="Select type">
-                          <option selected>Seleccione tipo...</option>
-                          <option value="1">Vendido</option>
-                          <option value="2">Alquilado</option>
-                          <option value="3">Reservado</option>
-                          <option value="4">Disponible</option>
-                      </select>                    
+                    <input type="text" class="form-control" id="inputType" [value]="vehicle.vehicle_type.vehicle_type" readonly>                   
                   </div>
               </div>
               <div class="row mb-3">
@@ -160,7 +157,7 @@
                       <label for="inputModelName" class="col col-form-label fw-bold">Distancia ejes:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputModelName">
+                      <input type="text" class="form-control" id="inputModelName" [value]="vehicle.specs.axis_distance" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -168,7 +165,7 @@
                       <label for="inputModelName" class="col col-form-label fw-bold">Tara:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputModelName">
+                      <input type="text" class="form-control" id="inputModelName" [value]="vehicle.specs.tare" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -184,7 +181,7 @@
                       <label for="inputModelName" class="col col-form-label fw-bold">Neumáticos:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputModelName">
+                      <input type="text" class="form-control" id="inputModelName" [value]="vehicle.specs.tires" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -192,13 +189,7 @@
                       <label for="inputEngine" class="col col-form-label fw-bold">Motor:</label>
                   </div>
                   <div class="col">
-                      <select class="form-select" aria-label="Select engine">
-                          <option selected>Seleccione motor...</option>
-                          <option value="1">Vendido</option>
-                          <option value="2">Alquilado</option>
-                          <option value="3">Reservado</option>
-                          <option value="4">Disponible</option>
-                      </select>                    
+                    <input type="text" class="form-control" id="inputEngine" [value]="vehicle.specs.engine.engine" readonly>                    
                   </div>
               </div>
               <div class="row mb-3">
@@ -206,7 +197,7 @@
                       <label for="inputModelName" class="col col-form-label fw-bold">Consumo urbano:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputModelName">
+                      <input type="text" class="form-control" id="inputModelName" [value]="vehicle.specs.urban_fuel_economy" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -214,7 +205,7 @@
                       <label for="inputModelName" class="col col-form-label fw-bold">Consumo extraurbano:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputModelName">
+                      <input type="text" class="form-control" id="inputModelName" [value]="vehicle.specs.extra_urban_fuel_economy" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -222,7 +213,7 @@
                       <label for="inputModelName" class="col col-form-label fw-bold">Consumo medio:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputModelName">
+                      <input type="text" class="form-control" id="inputModelName" [value]="vehicle.specs.overall_fuel_economy" readonly>
                   </div>
               </div>
           </div>
