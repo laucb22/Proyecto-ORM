@@ -17,11 +17,9 @@
                             <p class="card-text">{{ vehicle.price }} €</p>
                         </div>
                         <div class="col-4 offset-4">
-                            <button class="btn btn-primary">Details</button>
+                            <button class="btn btn-primary" [routerLink]="['/vehicle-detail', vehicle.plate_number]">Details</button>
                         </div>
-                        
                     </div>
-                    
                 </div>
             </div>
         </div>
