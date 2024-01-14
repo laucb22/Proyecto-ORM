@@ -12,4 +12,8 @@ export class ApiService {
   getVehicles(): Observable<any[]>{
     return this.http.get<any[]>("http://localhost:5000/")
   }
+
+  getVehicleById(plateNumber: any): Observable<any[]>{
+    return this.http.get<any[]>(`http://localhost:5000/getVehicleById/${plateNumber}`)
+  }
 }

@@ -1,0 +1,232 @@
+<div class="container">
+  <form>
+      <div class="row">
+          <h4 class="text-center mb-3">Vehículo</h4>
+          <div class="col">
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputPlate" class="col col-form-label fw-bold">Matrícula:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputPlate" [value]="vehicle.plate_number" readonly>
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputColor" class="col col-form-label fw-bold">Color:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputColor" [value]="vehicle.Color" readonly>
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputImg" class="col col-form-label fw-bold">Imagen URL:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputImg" [value]="vehicle.img_url" readonly>
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputPrice" class="col col-form-label fw-bold">Precio:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputPrice" [value]="vehicle.price" readonly>
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputStatus" class="col col-form-label fw-bold">Estado:</label>
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" id="inputStatus" [value]="vehicle.status.status" readonly>               
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputModel" class="col col-form-label fw-bold">Modelo:</label>
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" id="inputStatus" [value]="vehicle.status.status" readonly>                    
+                  </div>
+              </div>
+          </div>
+      </div>
+      <hr>
+      <div class="row">
+          <h4 class="text-center mb-3">Ficha técnica</h4>
+          <div class="col">
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputVersion" class="col col-form-label fw-bold">Versión:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputVersion">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputDoors" class="col col-form-label fw-bold">Puertas:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputDoors">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputSeats" class="col col-form-label fw-bold">Plazas:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputSeats">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputHeight" class="col col-form-label fw-bold">Altura:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputHeight">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputWidth" class="col col-form-label fw-bold">Anchura:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputWidth">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputLength" class="col col-form-label fw-bold">Largura:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputLength">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputMaxPot" class="col col-form-label fw-bold">Potencia máx:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputMaxPot">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputModelName" class="col col-form-label fw-bold">Tracción:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputModelName">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-3">
+                      <label for="inputAddons" class="col col-form-label fw-bold">Modificaciones:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputAddons">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-3">
+                      <label for="inputModelName" class="col col-form-label fw-bold">Observaciones:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputModelName">
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputType" class="col col-form-label fw-bold">Tipo:</label>
+                  </div>
+                  <div class="col">
+                      <select class="form-select" aria-label="Select type">
+                          <option selected>Seleccione tipo...</option>
+                          <option value="1">Vendido</option>
+                          <option value="2">Alquilado</option>
+                          <option value="3">Reservado</option>
+                          <option value="4">Disponible</option>
+                      </select>                    
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputModelName" class="col col-form-label fw-bold">Distancia ejes:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputModelName">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputModelName" class="col col-form-label fw-bold">Tara:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputModelName">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputModelName" class="col col-form-label fw-bold">MMA:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputModelName">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputModelName" class="col col-form-label fw-bold">Neumáticos:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputModelName">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputEngine" class="col col-form-label fw-bold">Motor:</label>
+                  </div>
+                  <div class="col">
+                      <select class="form-select" aria-label="Select engine">
+                          <option selected>Seleccione motor...</option>
+                          <option value="1">Vendido</option>
+                          <option value="2">Alquilado</option>
+                          <option value="3">Reservado</option>
+                          <option value="4">Disponible</option>
+                      </select>                    
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputModelName" class="col col-form-label fw-bold">Consumo urbano:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputModelName">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputModelName" class="col col-form-label fw-bold">Consumo extraurbano:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputModelName">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-2">
+                      <label for="inputModelName" class="col col-form-label fw-bold">Consumo medio:</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="inputModelName">
+                  </div>
+              </div>
+          </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Añadir vehículo</button>
+  </form>
+</div>
