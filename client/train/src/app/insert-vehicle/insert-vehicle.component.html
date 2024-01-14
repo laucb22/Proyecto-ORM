@@ -1,7 +1,7 @@
 <div class="container">
     <form #vForm="ngForm" (ngSubmit) = "onSubmit(vForm.value)">
         <div class="row">
-            <h4 class="text-center mb-3 fw-bold">New Vehicle</h4>
+            <h4 class="text-center mb-3 mt-3 fw-bold">New Vehicle</h4>
             <div class="col">
                 <div class="row mb-3">
                     <div class="col-2">
@@ -31,6 +31,16 @@
             <div class="col">
                 <div class="row mb-3">
                     <div class="col-2">
+                        <label for="inputType" class="col col-form-label fw-bold">Brand:</label>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" aria-label="Select type" name="brand" [(ngModel)]="vForm.value.brand">
+                            <option *ngFor="let brand of brands" [value]="brand.name">{{ brand.name }}</option>
+                        </select>                    
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-2">
                         <label for="inputPrice" class="col col-form-label fw-bold">Price:</label>
                     </div>
                     <div class="col">
@@ -55,16 +65,6 @@
                         <input type="text" class="form-control" id="inputModel" name="model" [(ngModel)]="vForm.value.model">                    
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-2">
-                        <label for="inputType" class="col col-form-label fw-bold">Brand:</label>
-                    </div>
-                    <div class="col">
-                        <select class="form-select" aria-label="Select type" name="brand" [(ngModel)]="vForm.value.brand">
-                            <option *ngFor="let brand of brands" [value]="brand.name">{{ brand.name }}</option>
-                        </select>                    
-                    </div>
-                </div>
             </div>
         </div>
         <hr>
@@ -87,14 +87,7 @@
                         <input type="number" class="form-control" id="inputDoors" name="doors" [(ngModel)]="vForm.value.doors">
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-2">
-                        <label for="inputSeats" class="col col-form-label fw-bold">Seats:</label>
-                    </div>
-                    <div class="col">
-                        <input type="number" class="form-control" id="inputSeats" name="seats" [(ngModel)]="vForm.value.seats">
-                    </div>
-                </div>
+
                 <div class="row mb-3">
                     <div class="col-2">
                         <label for="inputHeight" class="col col-form-label fw-bold">Height:</label>
@@ -120,7 +113,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-2">
+                    <div class="col-3">
                         <label for="inputMaxPot" class="col col-form-label fw-bold">Max Potency:</label>
                     </div>
                     <div class="col">
@@ -128,7 +121,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-2">
+                    <div class="col-3">
                         <label for="inputWheelDrive" class="col col-form-label fw-bold">Wheel Drive:</label>
                     </div>
                     <div class="col">
@@ -137,6 +130,14 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-3">
+                        <label for="inputAxisDistance" class="col col-form-label fw-bold">Axis Distance:</label>
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control" id="inputAxisDistance" name="axis_distance" [(ngModel)]="vForm.value.axis_distance">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-2">
                         <label for="inputAddons" class="col col-form-label fw-bold">Addons:</label>
                     </div>
                     <div class="col">
@@ -144,7 +145,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-3">
+                    <div class="col-2">
                         <label for="inputNotes" class="col col-form-label fw-bold">Notes:</label>
                     </div>
                     <div class="col">
@@ -159,17 +160,16 @@
                     </div>
                     <div class="col">
                         <select class="form-select" aria-label="Select type" name="vehicle_type" [(ngModel)]="vForm.value.vehicle_type">
-                            <option selected>Seleccione tipo...</option>
                             <option *ngFor="let type of types" [value]="type.vehicle_type">{{ type.vehicle_type }}</option>
                         </select>                    
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputAxisDistance" class="col col-form-label fw-bold">Axis Distance:</label>
+                        <label for="inputSeats" class="col col-form-label fw-bold">Seats:</label>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" id="inputAxisDistance" name="axis_distance" [(ngModel)]="vForm.value.axis_distance">
+                        <input type="number" class="form-control" id="inputSeats" name="seats" [(ngModel)]="vForm.value.seats">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -182,7 +182,7 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputWeightRating" class="col col-form-label fw-bold">Weight Rating:</label>
+                        <label for="inputWeightRating" class="col col-form-label fw-bold">GVWR:</label>
                     </div>
                     <div class="col">
                         <input type="number" class="form-control" id="inputWeightRating" name="gross_vehicle_weight_rating" [(ngModel)]="vForm.value.gross_vehicle_weight_rating">
@@ -205,7 +205,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-2">
+                    <div class="col-5">
                         <label for="inputUrbanFuelEconomy" class="col col-form-label fw-bold">Urban Fuel Economy:</label>
                     </div>
                     <div class="col">
@@ -213,7 +213,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-2">
+                    <div class="col-5">
                         <label for="inputExtraUrbanFuelEconomy" class="col col-form-label fw-bold">Extra Urban F. Economy:</label>
                     </div>
                     <div class="col">
@@ -221,7 +221,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-2">
+                    <div class="col-5">
                         <label for="inputOverallFuelEconomy" class="col col-form-label fw-bold">Overall F. Economy:</label>
                     </div>
                     <div class="col">

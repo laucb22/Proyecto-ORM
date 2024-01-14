@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col text-center">
-            <h1>All Vehicles</h1>
+            <h1>Vehicle Catalog</h1>
         </div>
     </div>
     <hr>
@@ -65,7 +65,7 @@
                     <th>{{vehicle.model.name}}</th>
                     <td>{{vehicle.vehicle_type.vehicle_type}}</td>
                     <td>{{vehicle.color}}</td>
-                    <td>{{vehicle.price | number: '1.2-2' }} €</td>
+                    <td>{{vehicle.price | number: '1.2-2':'es' }} €</td>
                     <td>{{vehicle.status.status}}</td>
                     <td>
                       <button class="btn btn-primary" [routerLink]="['/vehicle-detail', vehicle.plate_number]">Details</button>
