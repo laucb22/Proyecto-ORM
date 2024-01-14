@@ -1,5 +1,5 @@
 <div class="container">
-    <form>
+    <form #vForm="ngForm" (ngSubmit) = "onSubmit(vForm.value)">
         <div class="row">
             <h4 class="text-center mb-3">Vehicle</h4>
             <div class="col-6">
@@ -13,7 +13,7 @@
                         <label for="inputPlate" class="col col-form-label fw-bold">Plate Number:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputPlate" [value]="vehicle.plate_number" readonly>
+                        <input type="text" class="form-control" id="inputPlate" name="plate_number" [(ngModel)]="vehiclePlateNumber">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -21,7 +21,7 @@
                         <label for="inputColor" class="col col-form-label fw-bold">Color:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputColor" [value]="vehicle.color">
+                        <input type="text" class="form-control" id="inputColor" name="color" [(ngModel)]="vehicleColor">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -37,7 +37,7 @@
                         <label for="inputPrice" class="col col-form-label fw-bold">Price:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputPrice" [value]="vehicle.price">
+                        <input type="text" class="form-control" id="inputPrice" name="price" [(ngModel)]="vehiclePrice">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -45,7 +45,7 @@
                         <label for="inputStatus" class="col col-form-label fw-bold">Status:</label>
                     </div>
                     <div class="col">
-                      <input type="text" class="form-control" id="inputStatus" [value]="vehicle.status.status">               
+                      <input type="text" class="form-control" id="inputStatus" name="status" [(ngModel)]="vehicleStatus">               
                     </div>
                 </div>
                 <div class="row mb-3">
