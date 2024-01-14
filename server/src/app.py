@@ -8,12 +8,9 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route("/testModel")
-def find_model():
-    data = request.json
-    print(data["model"])
-    return mc.model_exists(data["model"])
-
+@app.route("/getAllVehicles")
+def get_vehicles():
+    return mc.get_all_vehicles()
 
 @app.route("/")
 def load_index():
@@ -69,9 +66,15 @@ def new_vehicle():
     return mc.insert_vehicle(new_vehicle, new_specs)
 
 
-@app.route("/deleteVehicle/<plate_number>", methods=["DELETE"])
-def delete_vehicle(plate_number):
-    return mc.delete_vehicle(plate_number)
+@app.route("/deleteVehicle", methods=["DELETE"])
+def delete_vehicle():
+    data = request.json
+    print(data)
+    return mc.delete_vehicle(data['number'])
+
+@app.route("/getBrands", methods=['GET'])
+def get_all_brands():
+    return mc.get_brands()
 
 
 if __name__ == "__main__":

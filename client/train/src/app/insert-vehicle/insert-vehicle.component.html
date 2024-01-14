@@ -1,14 +1,14 @@
 <div class="container">
-    <form>
+    <form #vForm="ngForm" (ngSubmit) = "onSubmit(vForm.value)">
         <div class="row">
-            <h4 class="text-center mb-3">Vehículo</h4>
+            <h4 class="text-center mb-3">New Vehicle</h4>
             <div class="col">
                 <div class="row mb-3">
                     <div class="col-2">
                         <label for="inputPlate" class="col col-form-label fw-bold">Matrícula:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputPlate">
+                        <input type="text" class="form-control" id="inputPlate" name="number_plate">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -16,7 +16,7 @@
                         <label for="inputColor" class="col col-form-label fw-bold">Color:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputColor">
+                        <input type="text" class="form-control" id="inputColor" name="color">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -24,7 +24,7 @@
                         <label for="inputImg" class="col col-form-label fw-bold">Imagen URL:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputImg">
+                        <input type="text" class="form-control" id="inputImg" name="img_url">
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                         <label for="inputPrice" class="col col-form-label fw-bold">Precio:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputPrice">
+                        <input type="text" class="form-control" id="inputPrice" name="price">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -42,7 +42,7 @@
                         <label for="inputStatus" class="col col-form-label fw-bold">Estado:</label>
                     </div>
                     <div class="col">
-                        <select class="form-select" aria-label="Select status">
+                        <select class="form-select" aria-label="Select status" name="status">
                             <option selected>Seleccione estado...</option>
                             <option value="1">Vendido</option>
                             <option value="2">Alquilado</option>
@@ -56,13 +56,7 @@
                         <label for="inputModel" class="col col-form-label fw-bold">Modelo:</label>
                     </div>
                     <div class="col">
-                        <select class="form-select" aria-label="Select model">
-                            <option selected>Seleccione modelo...</option>
-                            <option value="1">Vendido</option>
-                            <option value="2">Alquilado</option>
-                            <option value="3">Reservado</option>
-                            <option value="4">Disponible</option>
-                        </select>                    
+                        <input type="text" class="form-control" id="inputModel" name="model">                    
                     </div>
                 </div>
             </div>
@@ -76,7 +70,7 @@
                         <label for="inputVersion" class="col col-form-label fw-bold">Versión:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputVersion">
+                        <input type="text" class="form-control" id="inputVersion" name="version">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -84,7 +78,7 @@
                         <label for="inputDoors" class="col col-form-label fw-bold">Puertas:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputDoors">
+                        <input type="number" class="form-control" id="inputDoors" name="doors">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -92,7 +86,7 @@
                         <label for="inputSeats" class="col col-form-label fw-bold">Plazas:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputSeats">
+                        <input type="number" class="form-control" id="inputSeats" name="seats">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -100,7 +94,7 @@
                         <label for="inputHeight" class="col col-form-label fw-bold">Altura:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputHeight">
+                        <input type="number" class="form-control" id="inputHeight" name="height">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -108,7 +102,7 @@
                         <label for="inputWidth" class="col col-form-label fw-bold">Anchura:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputWidth">
+                        <input type="number" class="form-control" id="inputWidth" name="width">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -116,7 +110,7 @@
                         <label for="inputLength" class="col col-form-label fw-bold">Largura:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputLength">
+                        <input type="number" class="form-control" id="inputLength" name="length">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -124,7 +118,7 @@
                         <label for="inputMaxPot" class="col col-form-label fw-bold">Potencia máx:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputMaxPot">
+                        <input type="number" class="form-control" id="inputMaxPot" name="max_potency">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -132,7 +126,7 @@
                         <label for="inputWheelDrive" class="col col-form-label fw-bold">Tracción:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputWheelDrive">
+                        <input type="text" class="form-control" id="inputWheelDrive" name="wheel_drive">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -140,7 +134,7 @@
                         <label for="inputAddons" class="col col-form-label fw-bold">Modificaciones:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputAddons">
+                        <input type="text" class="form-control" id="inputAddons" name="addons">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -148,7 +142,7 @@
                         <label for="inputNotes" class="col col-form-label fw-bold">Observaciones:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputNotes">
+                        <input type="text" class="form-control" id="inputNotes" name="notes">
                     </div>
                 </div>
             </div>
@@ -158,12 +152,25 @@
                         <label for="inputType" class="col col-form-label fw-bold">Tipo:</label>
                     </div>
                     <div class="col">
-                        <select class="form-select" aria-label="Select type">
+                        <select class="form-select" aria-label="Select type" name="vehicle_type">
                             <option selected>Seleccione tipo...</option>
-                            <option value="1">Vendido</option>
-                            <option value="2">Alquilado</option>
-                            <option value="3">Reservado</option>
-                            <option value="4">Disponible</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Coupe">Coupe</option>
+                            <option value="Convertible">Convertible</option>
+                            <option value="Hatchback">Hatchback</option>
+                            <option value="Truck">Truck</option>
+                            <option value="Van">Van</option>
+                        </select>                    
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-2">
+                        <label for="inputType" class="col col-form-label fw-bold">Brand:</label>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" aria-label="Select type" name="brand">
+                            <option *ngFor="let brand of brands" [value]="brand.name">{{ brand.name }}</option>
                         </select>                    
                     </div>
                 </div>
@@ -172,7 +179,7 @@
                         <label for="inputAxisDistance" class="col col-form-label fw-bold">Distancia ejes:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputAxisDistance">
+                        <input type="number" class="form-control" id="inputAxisDistance" name="axis_distance">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -180,7 +187,7 @@
                         <label for="inputTare" class="col col-form-label fw-bold">Tara:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputTare">
+                        <input type="number" class="form-control" id="inputTare" name="tare">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -188,7 +195,7 @@
                         <label for="inputWeightRating" class="col col-form-label fw-bold">MMA:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputWeightRating">
+                        <input type="text" class="form-control" id="inputWeightRating" name="gross_vehicle_weight_rating">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -196,7 +203,7 @@
                         <label for="inputTires" class="col col-form-label fw-bold">Neumáticos:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputTires">
+                        <input type="text" class="form-control" id="inputTires" name="tires">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -204,13 +211,7 @@
                         <label for="inputEngine" class="col col-form-label fw-bold">Motor:</label>
                     </div>
                     <div class="col">
-                        <select class="form-select" aria-label="Select engine">
-                            <option selected>Seleccione motor...</option>
-                            <option value="1">Vendido</option>
-                            <option value="2">Alquilado</option>
-                            <option value="3">Reservado</option>
-                            <option value="4">Disponible</option>
-                        </select>                    
+                        <input type="text" class="form-control" id="inputEngine" name="engine">                 
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -218,7 +219,7 @@
                         <label for="inputUrbanFuelEconomy" class="col col-form-label fw-bold">Consumo urbano:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputUrbanFuelEconomy">
+                        <input type="number" class="form-control" id="inputUrbanFuelEconomy" name="urban_fuel_economy">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -226,7 +227,7 @@
                         <label for="inputExtraUrbanFuelEconomy" class="col col-form-label fw-bold">Consumo extraurbano:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputExtraUrbanFuelEconomy">
+                        <input type="number" class="form-control" id="inputExtraUrbanFuelEconomy" name="extra_urban_fuel_economy">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -234,7 +235,7 @@
                         <label for="inputOverallFuelEconomy" class="col col-form-label fw-bold">Consumo medio:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputOverallFuelEconomy">
+                        <input type="number" class="form-control" id="inputOverallFuelEconomy" name="overall_fuel_economy">
                     </div>
                 </div>
             </div>

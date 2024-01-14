@@ -20,9 +20,11 @@ def get_dict(rows):
 
     return output
 
+def get_all_vehicles():
+    return get_dict(Vehicle.select())
 
 def get_rand_vehicles():
-    return get_dict(Vehicle.select().order_by(fn.Random()).limit(5))
+    return get_dict(Vehicle.select().order_by(fn.Random()).limit(6))
 
 
 def get_vehicle_by_id(plate_number):
@@ -123,8 +125,8 @@ def delete_vehicle(v_id):
     )[0]
 
     Vehicle.delete().where(Vehicle.plate_number == v_id).execute()
-    Specs.delete().where(Specs.id_specs == specs_to_delete["id_specs"]).execute()
-
+    Specs.delete().where(Specs.id_specs == specs_to_delete['id_specs']).execute()
+    
     return "Vehicle deleted"
 
 
@@ -142,3 +144,6 @@ def find_engine(engine):
     )
 
     return found_engine
+
+def get_brands():
+    return get_dict(Brand.select())

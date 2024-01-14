@@ -9,6 +9,8 @@ import { CardDetailComponent } from './card-detail/card-detail.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InsertVehicleComponent } from './insert-vehicle/insert-vehicle.component';
 import { FooterComponent } from './footer/footer.component';
+import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
+import { FormsModule }   from '@angular/forms';
 
 
 @NgModule({
@@ -18,12 +20,14 @@ import { FooterComponent } from './footer/footer.component';
     CardDetailComponent,
     NavbarComponent,
     InsertVehicleComponent,
-    FooterComponent
+    FooterComponent,
+    VehicleListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
