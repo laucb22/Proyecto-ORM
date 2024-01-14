@@ -37,7 +37,7 @@
                       <label for="inputPrice" class="col col-form-label fw-bold">Price:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputPrice" [value]="vehicle.price | number: '1.2-2':'es'" readonly>
+                      <input type="text" class="form-control" id="inputPrice" [value]="(vehicle.price | number: '1.2-2':'es') + ' €'" readonly>
                   </div>
               </div>
               <div class="row mb-3">
