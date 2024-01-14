@@ -17,6 +17,9 @@
                     <th scope="col">Color</th>
                     <th scope="col">Price</th>
                     <th scope="col">Status</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -27,9 +30,9 @@
                     <th>{{vehicle.plate_number}}</th>
                     <th>{{vehicle.model.brand.name}}</th>
                     <th>{{vehicle.model.name}}</th>
-                    <td>{{vehicle.vehicle_type.type}}</td>
+                    <td>{{vehicle.vehicle_type.vehicle_type}}</td>
                     <td>{{vehicle.color}}</td>
-                    <td>{{vehicle.price | number: '1.2-2' }}</td>
+                    <td>{{vehicle.price | number: '1.2-2' }} €</td>
                     <td>{{vehicle.status.status}}</td>
                     <td>
                       <button class="btn btn-primary" [routerLink]="['/vehicle-detail', vehicle.plate_number]">Details</button>
