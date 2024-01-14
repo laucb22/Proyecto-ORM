@@ -9,12 +9,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class VehicleListComponent implements OnInit  {
   vehicles: any[] = []
-
+  brands: any[] = []
+  types: any[] = [];
+  statuses: any[] = []
   constructor(private api: ApiService){}
 
   ngOnInit() {
     this.api.getAllVehicles().subscribe((data: any[]) => {
       this.vehicles = data
+    })
+    this.api.getBrands().subscribe((data: any[]) =>{
+      this.brands = data
+    })
+    this.api.getTypes().subscribe((data: any[]) =>{
+      this.types = data;
+    })
+    this.api.getStatuses().subscribe((data: any[]) =>{
+      this.statuses = data
     })
   }
   
@@ -27,6 +38,16 @@ export class VehicleListComponent implements OnInit  {
         console.error('Error deleting vehicle', error);
       }
     );
+  }
+
+  onSubmit(value: any){
+    console.log(value)
+  }
+  clearFilters(){
+    console.log("CLEARING")
+    this.api.getAllVehicles().subscribe((data: any[]) => {
+      this.vehicles = data
+    })
   }
 
 }

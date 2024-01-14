@@ -1,7 +1,7 @@
 <div class="container">
     <form #vForm="ngForm" (ngSubmit) = "onSubmit(vForm.value)">
         <div class="row">
-            <h4 class="text-center mb-3">New Vehicle</h4>
+            <h4 class="text-center mb-3 fw-bold">New Vehicle</h4>
             <div class="col">
                 <div class="row mb-3">
                     <div class="col-2">
@@ -55,11 +55,21 @@
                         <input type="text" class="form-control" id="inputModel" name="model" [(ngModel)]="vForm.value.model">                    
                     </div>
                 </div>
+                <div class="row mb-3">
+                    <div class="col-2">
+                        <label for="inputType" class="col col-form-label fw-bold">Brand:</label>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" aria-label="Select type" name="brand" [(ngModel)]="vForm.value.brand">
+                            <option *ngFor="let brand of brands" [value]="brand.name">{{ brand.name }}</option>
+                        </select>                    
+                    </div>
+                </div>
             </div>
         </div>
         <hr>
         <div class="row">
-            <h4 class="text-center mb-3">Ficha técnica</h4>
+            <h4 class="text-center mb-3 fw-bold">Vehicle Specifications</h4>
             <div class="col">
                 <div class="row mb-3">
                     <div class="col-2">
@@ -151,16 +161,6 @@
                         <select class="form-select" aria-label="Select type" name="vehicle_type" [(ngModel)]="vForm.value.vehicle_type">
                             <option selected>Seleccione tipo...</option>
                             <option *ngFor="let type of types" [value]="type.vehicle_type">{{ type.vehicle_type }}</option>
-                        </select>                    
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-2">
-                        <label for="inputType" class="col col-form-label fw-bold">Brand:</label>
-                    </div>
-                    <div class="col">
-                        <select class="form-select" aria-label="Select type" name="brand" [(ngModel)]="vForm.value.brand">
-                            <option *ngFor="let brand of brands" [value]="brand.name">{{ brand.name }}</option>
                         </select>                    
                     </div>
                 </div>
