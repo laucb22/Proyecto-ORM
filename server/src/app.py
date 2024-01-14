@@ -21,7 +21,10 @@ def load_index():
 def get_vehicle(plate_number):
     return mc.get_vehicle_by_id(plate_number)
 
-
+@app.route("/editVehicle", methods=["POST"])
+def process_edit():
+    data = request.json
+    return mc.edit_vehicle(data)
 
 @app.route("/insertVehicle", methods=["POST"])
 def new_vehicle():
@@ -79,5 +82,10 @@ def get_types():
 @app.route("/getStatuses", methods = ['GET'])
 def get_statuses():
     return mc.get_statuses()
+
+@app.route("/filter", methods=['GET'])
+def filter_data():
+    filters = request.json
+    
 if __name__ == "__main__":
     app()
