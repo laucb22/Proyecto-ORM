@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,9 @@ import { FooterComponent } from './footer/footer.component';
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { FormsModule }   from '@angular/forms';
 import { EditVehicleComponent } from './edit-vehicle/edit-vehicle.component';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+registerLocaleData(localeEs);
 
 
 @NgModule({
@@ -31,7 +34,7 @@ import { EditVehicleComponent } from './edit-vehicle/edit-vehicle.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, { provide: LOCALE_ID, useValue: 'es-ES'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
