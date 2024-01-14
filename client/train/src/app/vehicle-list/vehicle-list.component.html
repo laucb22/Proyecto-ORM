@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <h1>All Vehicles</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th scope="col">Plate Number</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let vehicle of vehicles">
+                    <th>
+                        <img height="100" width="200" [src] = "vehicle.img_url" alt="">
+                    </th>
+                    <th>{{vehicle.plate_number}}</th>
+                    <th>{{vehicle.model.brand.name}}</th>
+                    <th>{{vehicle.model.name}}</th>
+                    <td>{{vehicle.vehicle_type.type}}</td>
+                    <td>{{vehicle.color}}</td>
+                    <td>{{vehicle.price}}</td>
+                    <td>{{vehicle.status.status}}</td>
+                    <td>
+                        <button class="btn btn-danger" (click)="onDelete(vehicle.plate_number)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
