@@ -29,7 +29,26 @@ def get_status():
 def new_vehicle():
     data = request.json
 
-    
+    new_specs = {
+        'version': data['version'],
+        'doors': data['doors'],
+        'seats': data['seats'],
+        'height': data['height'],
+        'width': data['width'],
+        'length': data['length'],
+        'axis_distance': data['axis_distance'],
+        'tare': data['tare'],
+        'gross_vehicle_weight_rating': data['gross_vehicle_weight_rating'],
+        'tires': data['tires'],
+        'engine': data['engine'],
+        'max_potency': data['max_potency'],
+        'wheel_drive': data['wheel_drive'],
+        'urban_fuel_economy': data['urban_fuel_economy'],
+        'extra_urban_fuel_economy': data['extra_urban_fuel_economy'],
+        'overall_fuel_economy': data['overall_fuel_economy'],
+        'addons': data['addons'],
+        'notes': data['notes']
+    }
 
     new_vehicle = {
         'plate_number': data['plate_number'],
@@ -42,9 +61,11 @@ def new_vehicle():
         'brand': data['brand']
     }
 
-    return mc.insert_model(new_vehicle)
+    return mc.insert_vehicle(new_vehicle, new_specs)
 
-
+@app.route("/deleteVehicle/<plate_number>", methods=["DELETE"])
+def delete_vehicle(plate_number):
+    return mc.delete_vehicle(plate_number)
 
 
 if __name__ == "__main__":
