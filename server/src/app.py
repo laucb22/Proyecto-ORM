@@ -4,6 +4,7 @@ from flask import jsonify, request
 import controllers.main_controller as mc
 from flask_cors import CORS
 
+#Creación de app Flask
 app = Flask(__name__)
 CORS(app)
 
@@ -16,16 +17,21 @@ def get_vehicles():
 def load_index():
     return mc.get_rand_vehicles()
 
-
+#Ruta: getVehicleById
+# Recoge la mátricula del vehñiculo a buscar de la URL y realiza una llamada al controller
 @app.route("/getVehicleById/<plate_number>", methods=["GET"])
 def get_vehicle(plate_number):
     return mc.get_vehicle_by_id(plate_number)
 
+#Ruta: editVehicle
+# Recoge parámetros de edición y los envía a la función apropiada
 @app.route("/editVehicle", methods=["POST"])
 def process_edit():
     data = request.json
     return mc.edit_vehicle(data)
 
+#Ruta: insertVehicle
+# Introduce los datos recogidos de un JSON en dos diccionarios para la creación de un vehículo y sus especificaciones.
 @app.route("/insertVehicle", methods=["POST"])
 def new_vehicle():
     data = request.json
@@ -64,11 +70,11 @@ def new_vehicle():
 
     return mc.insert_vehicle(new_vehicle, new_specs)
 
-
+#Ruta: deleteVehicle
+# Obtiene un json con la id del vehículo a borrar y lo comunica a la función correspondiente.
 @app.route("/deleteVehicle", methods=["DELETE"])
 def delete_vehicle():
     data = request.json
-    print(data)
     return mc.delete_vehicle(data['number'])
 
 @app.route("/getBrands", methods=['GET'])
@@ -83,6 +89,8 @@ def get_types():
 def get_statuses():
     return mc.get_statuses()
 
+#Ruta: filter
+# Recoge los filtros de un JSON y llama a la función apropiada.
 @app.route("/filter", methods=['POST'])
 def filter_data():
     filters = request.json

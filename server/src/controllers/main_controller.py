@@ -8,7 +8,11 @@ from models.engine import Engine
 from models.brand import Brand
 from models.vehicle_type import Vehicle_Type as Vtype
 
-
+#
+# Pre:---
+# Post: Recibe filas provenientes de resultados de sentencias SQL, lo convierte a un array de diccionarios y ldevuelve
+# @params: rows
+#
 def get_dict(rows):
     output = []
     if rows.count() == 1:
@@ -20,13 +24,25 @@ def get_dict(rows):
 
     return output
 
+#
+# Pre:---
+# Post: Función para obtener todos los vehículos de la BBDD
+#
 def get_all_vehicles():
     return get_dict(Vehicle.select())
 
+#
+# Pre:---
+# Post: Función para obtener 6 vehículos aleatorios
+#
 def get_rand_vehicles():
     return get_dict(Vehicle.select().order_by(fn.Random()).limit(6))
 
-
+#
+# Pre:---
+# Post: Función para buscar un vehículo según su matrícula
+# @params: plate_number
+#
 def get_vehicle_by_id(plate_number):
     found_vehicle = Vehicle.select().where(Vehicle.plate_number == plate_number)
     if found_vehicle:
@@ -34,7 +50,10 @@ def get_vehicle_by_id(plate_number):
     else:
         return "No vehicle found with that ID"
 
-
+# Pre:---
+# Post: Función para buscar los detalles de un vehículo según la id que conecta con la tabla de especificaciones.
+# @params: plate_number
+#
 def get_vehicle_specs(id_to_search):
     specs = Specs.select().where(Specs.id_specs == id_to_search)
 
@@ -43,16 +62,13 @@ def get_vehicle_specs(id_to_search):
     else:
         return "No specs found"
 
-
-def get_status_names():
-    statuses = Status.select(Status.status)
-
-    if statuses:
-        return get_dict(statuses)
-    else:
-        return "No statuses found"
-
-
+#
+# Pre:---
+# Post: Función para la inserción de un vehículo, recibe dos diccionarios con los datos para sus especificaciones y para los
+# datos generales, se encarga de crear un motor o un modelo si no existen los introducidos por parámetro. Devuelve un mensaje
+# informátivo indicando el resultado.
+# @params new_vehicle, new_specs
+#
 def insert_vehicle(new_vehicle, new_specs):
     found_vehicle = (
         find_vehicle(new_vehicle['plate_number'])[0]
@@ -122,9 +138,13 @@ def insert_vehicle(new_vehicle, new_specs):
     if new_vehicle:
         return "Vehicle created"
     else:
-        return "error creating vehicle"
+        return "Error creating vehicle"
 
-
+#
+# Pre:---
+# Post: Método para el borrado de un vehículo por su matrícula, se encarga de borrar sus especificaciones primero.
+# @params v_id
+#
 def delete_vehicle(v_id):
     specs_to_delete = get_dict(
         Specs.select()
@@ -137,7 +157,11 @@ def delete_vehicle(v_id):
     
     return "Vehicle deleted"
 
-
+#
+# Pre:---
+# Post: Método para buscar un modelo por su nombre
+# @params: models
+#
 def find_model(models):
     found_model = get_dict(
         Model.select().where(fn.Lower(Model.name) == fn.Lower(models))
@@ -145,7 +169,11 @@ def find_model(models):
 
     return found_model
 
-
+#
+# Pre:---
+# Post: Método para buscar un motor por su nombre
+# @params: engine
+#
 def find_engine(engine):
     found_engine = get_dict(
         Engine.select().where(fn.Lower(Engine.engine) == fn.Lower(engine))
@@ -153,22 +181,43 @@ def find_engine(engine):
 
     return found_engine
 
+#
+# Pre:---
+# Post: Método para obtener un vehículo según su matrícula
+# @params: vehicle
+#
 def find_vehicle(vehicle):
     found_vehicle = get_dict(
         Vehicle.select().where(fn.Lower(Vehicle.plate_number) == fn.Lower(vehicle))
     )
 
     return found_vehicle
-
+#
+# Pre:---
+# Post: Función para obtener todos las marcas de la BBDD
+#
 def get_brands():
     return get_dict(Brand.select())
 
+#
+# Pre:---
+# Post: Función para obtener todos los tipos de vehículo de la BBDD
+#
 def get_types():
     return get_dict(Vtype.select())
 
+#
+# Pre:---
+# Post: Función para obtener todos los estados de la BBDD
+#
 def get_statuses():
     return get_dict(Status.select())
 
+#
+# Pre:---
+# Post: Función encargada de la edición de un vehículo. Mediante un parámetro de tipo diccionario, obtiene el vehículo a editar,
+# y una vez encontrado, procede a actualizar los datos apropiados.
+#
 def edit_vehicle(data):
     v_plate_number = data['plate_number']
     new_color = data['color']
@@ -182,6 +231,12 @@ def edit_vehicle(data):
     
     return "Vehicle updated"
 
+#
+# Pre:---
+# Post: Método para filtrar la búsqueda de vehículos. Analiza la validéz de los filtros obtenidos por parámetro, 
+# y dependiendo de ella realiza los filtros adecuados. Finalmente, devuelve un diccionario con los resultados.
+# @params: filters
+#
 def filter_vehicles(filters):
     id_status = None
     id_type = None
