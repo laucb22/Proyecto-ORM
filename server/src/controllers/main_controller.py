@@ -54,6 +54,14 @@ def get_status_names():
 
 
 def insert_vehicle(new_vehicle, new_specs):
+    found_vehicle = (
+        find_vehicle(new_vehicle['plate_number'])[0]
+        if find_vehicle(new_vehicle['plate_number'])
+        else None
+    )
+    if found_vehicle is not None:
+        return "Vehicle already exists"
+    
     new_engine = (
         find_engine(new_specs["engine"])[0]
         if find_engine(new_specs["engine"])
@@ -145,5 +153,18 @@ def find_engine(engine):
 
     return found_engine
 
+def find_vehicle(vehicle):
+    found_vehicle = get_dict(
+        Vehicle.select().where(fn.Lower(Vehicle.plate_number) == fn.Lower(vehicle))
+    )
+
+    return found_vehicle
+
 def get_brands():
     return get_dict(Brand.select())
+
+def get_types():
+    return get_dict(Vtype.select())
+
+def get_statuses():
+    return get_dict(Status.select())

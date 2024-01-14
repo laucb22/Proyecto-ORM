@@ -29,7 +29,7 @@
                     <th>{{vehicle.model.name}}</th>
                     <td>{{vehicle.vehicle_type.type}}</td>
                     <td>{{vehicle.color}}</td>
-                    <td>{{vehicle.price}}</td>
+                    <td>{{vehicle.price | number: '1.2-2' }}</td>
                     <td>{{vehicle.status.status}}</td>
                     <td>
                         <button class="btn btn-danger" (click)="onDelete(vehicle.plate_number)">Delete</button>

@@ -28,4 +28,16 @@ export class ApiService {
   getBrands(): Observable<any[]>{
     return this.http.get<any[]>("http://localhost:5000/getBrands");
   }
+
+  getTypes(): Observable<any[]>{
+    return this.http.get<any[]>("http://localhost:5000/getTypes")
+  }
+
+  newVehicle(vehicleData: any): Observable<any[]>{
+    return this.http.post<any[]>("http://localhost:5000/insertVehicle", vehicleData)
+  }
+
+  getStatuses(): Observable<any[]>{
+    return this.http.get<any[]>("http://localhost:5000/getStatuses")
+  }
 }

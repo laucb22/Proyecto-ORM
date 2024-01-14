@@ -8,7 +8,7 @@
                     <p class="card-text">{{ vehicle.color }}</p>
                     <div class="row d-flex">
                         <div class="col-4">
-                            <p class="card-text">{{ vehicle.price }} €</p>
+                            <p class="card-text">{{ vehicle.price | number: '1.2-2'}} €</p>
                         </div>
                         <div class="col-4 offset-4">
                             <button class="btn btn-primary" [routerLink]="['/vehicle-detail', vehicle.plate_number]">Details</button>

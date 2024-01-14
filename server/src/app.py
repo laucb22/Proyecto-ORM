@@ -22,10 +22,6 @@ def get_vehicle(plate_number):
     return mc.get_vehicle_by_id(plate_number)
 
 
-@app.route("/getStatus", methods=["GET"])
-def get_status():
-    return mc.get_status_names()
-
 
 @app.route("/insertVehicle", methods=["POST"])
 def new_vehicle():
@@ -76,6 +72,12 @@ def delete_vehicle():
 def get_all_brands():
     return mc.get_brands()
 
+@app.route("/getTypes", methods =['GET'])
+def get_types():
+    return mc.get_types()
 
+@app.route("/getStatuses", methods = ['GET'])
+def get_statuses():
+    return mc.get_statuses()
 if __name__ == "__main__":
     app()

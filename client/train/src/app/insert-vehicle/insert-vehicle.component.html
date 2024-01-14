@@ -5,10 +5,10 @@
             <div class="col">
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputPlate" class="col col-form-label fw-bold">Matrícula:</label>
+                        <label for="inputPlate" class="col col-form-label fw-bold">Plate Number:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputPlate" name="number_plate">
+                        <input type="text" class="form-control" id="inputPlate" name="plate_number" [(ngModel)]="vForm.value.plate_number">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -16,47 +16,43 @@
                         <label for="inputColor" class="col col-form-label fw-bold">Color:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputColor" name="color">
+                        <input type="text" class="form-control" id="inputColor" name="color" [(ngModel)]="vForm.value.color">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputImg" class="col col-form-label fw-bold">Imagen URL:</label>
+                        <label for="inputImg" class="col col-form-label fw-bold">Image URL:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputImg" name="img_url">
+                        <input type="text" class="form-control" id="inputImg" name="img_url" [(ngModel)]="vForm.value.img_url">
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputPrice" class="col col-form-label fw-bold">Precio:</label>
+                        <label for="inputPrice" class="col col-form-label fw-bold">Price:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputPrice" name="price">
+                        <input type="text" class="form-control" id="inputPrice" name="price" [(ngModel)]="vForm.value.price">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputStatus" class="col col-form-label fw-bold">Estado:</label>
+                        <label for="inputStatus" class="col col-form-label fw-bold">Status:</label>
                     </div>
                     <div class="col">
-                        <select class="form-select" aria-label="Select status" name="status">
-                            <option selected>Seleccione estado...</option>
-                            <option value="1">Vendido</option>
-                            <option value="2">Alquilado</option>
-                            <option value="3">Reservado</option>
-                            <option value="4">Disponible</option>
+                        <select class="form-select" aria-label="Select status" name="status" [(ngModel)]="vForm.value.status">
+                            <option *ngFor="let status of statuses" [value]="status.status">{{ status.status }}</option>
                         </select>                    
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputModel" class="col col-form-label fw-bold">Modelo:</label>
+                        <label for="inputModel" class="col col-form-label fw-bold">Model:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputModel" name="model">                    
+                        <input type="text" class="form-control" id="inputModel" name="model" [(ngModel)]="vForm.value.model">                    
                     </div>
                 </div>
             </div>
@@ -67,100 +63,94 @@
             <div class="col">
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputVersion" class="col col-form-label fw-bold">Versión:</label>
+                        <label for="inputVersion" class="col col-form-label fw-bold">Version:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputVersion" name="version">
+                        <input type="text" class="form-control" id="inputVersion" name="version" [(ngModel)]="vForm.value.version">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputDoors" class="col col-form-label fw-bold">Puertas:</label>
+                        <label for="inputDoors" class="col col-form-label fw-bold">Doors:</label>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" id="inputDoors" name="doors">
+                        <input type="number" class="form-control" id="inputDoors" name="doors" [(ngModel)]="vForm.value.doors">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputSeats" class="col col-form-label fw-bold">Plazas:</label>
+                        <label for="inputSeats" class="col col-form-label fw-bold">Seats:</label>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" id="inputSeats" name="seats">
+                        <input type="number" class="form-control" id="inputSeats" name="seats" [(ngModel)]="vForm.value.seats">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputHeight" class="col col-form-label fw-bold">Altura:</label>
+                        <label for="inputHeight" class="col col-form-label fw-bold">Height:</label>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" id="inputHeight" name="height">
+                        <input type="number" class="form-control" id="inputHeight" name="height" [(ngModel)]="vForm.value.height">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputWidth" class="col col-form-label fw-bold">Anchura:</label>
+                        <label for="inputWidth" class="col col-form-label fw-bold">Width:</label>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" id="inputWidth" name="width">
+                        <input type="number" class="form-control" id="inputWidth" name="width" [(ngModel)]="vForm.value.width">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputLength" class="col col-form-label fw-bold">Largura:</label>
+                        <label for="inputLength" class="col col-form-label fw-bold">Length:</label>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" id="inputLength" name="length">
+                        <input type="number" class="form-control" id="inputLength" name="length" [(ngModel)]="vForm.value.length">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputMaxPot" class="col col-form-label fw-bold">Potencia máx:</label>
+                        <label for="inputMaxPot" class="col col-form-label fw-bold">Max Potency:</label>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" id="inputMaxPot" name="max_potency">
+                        <input type="number" class="form-control" id="inputMaxPot" name="max_potency" [(ngModel)]="vForm.value.max_potency">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputWheelDrive" class="col col-form-label fw-bold">Tracción:</label>
+                        <label for="inputWheelDrive" class="col col-form-label fw-bold">Wheel Drive:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputWheelDrive" name="wheel_drive">
+                        <input type="text" class="form-control" id="inputWheelDrive" name="wheel_drive" [(ngModel)]="vForm.value.wheel_drive">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-3">
-                        <label for="inputAddons" class="col col-form-label fw-bold">Modificaciones:</label>
+                        <label for="inputAddons" class="col col-form-label fw-bold">Addons:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputAddons" name="addons">
+                        <input type="text" class="form-control" id="inputAddons" name="addons" [(ngModel)]="vForm.value.addons">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-3">
-                        <label for="inputNotes" class="col col-form-label fw-bold">Observaciones:</label>
+                        <label for="inputNotes" class="col col-form-label fw-bold">Notes:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputNotes" name="notes">
+                        <input type="text" class="form-control" id="inputNotes" name="notes" [(ngModel)]="vForm.value.notes">
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputType" class="col col-form-label fw-bold">Tipo:</label>
+                        <label for="inputType" class="col col-form-label fw-bold">Type:</label>
                     </div>
                     <div class="col">
-                        <select class="form-select" aria-label="Select type" name="vehicle_type">
+                        <select class="form-select" aria-label="Select type" name="vehicle_type" [(ngModel)]="vForm.value.vehicle_type">
                             <option selected>Seleccione tipo...</option>
-                            <option value="Sedan">Sedan</option>
-                            <option value="SUV">SUV</option>
-                            <option value="Coupe">Coupe</option>
-                            <option value="Convertible">Convertible</option>
-                            <option value="Hatchback">Hatchback</option>
-                            <option value="Truck">Truck</option>
-                            <option value="Van">Van</option>
+                            <option *ngFor="let type of types" [value]="type.vehicle_type">{{ type.vehicle_type }}</option>
                         </select>                    
                     </div>
                 </div>
@@ -169,77 +159,77 @@
                         <label for="inputType" class="col col-form-label fw-bold">Brand:</label>
                     </div>
                     <div class="col">
-                        <select class="form-select" aria-label="Select type" name="brand">
+                        <select class="form-select" aria-label="Select type" name="brand" [(ngModel)]="vForm.value.brand">
                             <option *ngFor="let brand of brands" [value]="brand.name">{{ brand.name }}</option>
                         </select>                    
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputAxisDistance" class="col col-form-label fw-bold">Distancia ejes:</label>
+                        <label for="inputAxisDistance" class="col col-form-label fw-bold">Axis Distance:</label>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" id="inputAxisDistance" name="axis_distance">
+                        <input type="number" class="form-control" id="inputAxisDistance" name="axis_distance" [(ngModel)]="vForm.value.axis_distance">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputTare" class="col col-form-label fw-bold">Tara:</label>
+                        <label for="inputTare" class="col col-form-label fw-bold">Tare:</label>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" id="inputTare" name="tare">
+                        <input type="number" class="form-control" id="inputTare" name="tare" [(ngModel)]="vForm.value.tare">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputWeightRating" class="col col-form-label fw-bold">MMA:</label>
+                        <label for="inputWeightRating" class="col col-form-label fw-bold">Weight Rating:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputWeightRating" name="gross_vehicle_weight_rating">
+                        <input type="number" class="form-control" id="inputWeightRating" name="gross_vehicle_weight_rating" [(ngModel)]="vForm.value.gross_vehicle_weight_rating">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputTires" class="col col-form-label fw-bold">Neumáticos:</label>
+                        <label for="inputTires" class="col col-form-label fw-bold">Tires:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputTires" name="tires">
+                        <input type="text" class="form-control" id="inputTires" name="tires" [(ngModel)]="vForm.value.tires">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputEngine" class="col col-form-label fw-bold">Motor:</label>
+                        <label for="inputEngine" class="col col-form-label fw-bold">Engine:</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputEngine" name="engine">                 
+                        <input type="text" class="form-control" id="inputEngine" name="engine" [(ngModel)]="vForm.value.engine">                 
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputUrbanFuelEconomy" class="col col-form-label fw-bold">Consumo urbano:</label>
+                        <label for="inputUrbanFuelEconomy" class="col col-form-label fw-bold">Urban Fuel Economy:</label>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" id="inputUrbanFuelEconomy" name="urban_fuel_economy">
+                        <input type="number" class="form-control" id="inputUrbanFuelEconomy" name="urban_fuel_economy" [(ngModel)]="vForm.value.urban_fuel_economy">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputExtraUrbanFuelEconomy" class="col col-form-label fw-bold">Consumo extraurbano:</label>
+                        <label for="inputExtraUrbanFuelEconomy" class="col col-form-label fw-bold">Extra Urban F. Economy:</label>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" id="inputExtraUrbanFuelEconomy" name="extra_urban_fuel_economy">
+                        <input type="number" class="form-control" id="inputExtraUrbanFuelEconomy" name="extra_urban_fuel_economy" [(ngModel)]="vForm.value.extra_urban_fuel_economy">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-2">
-                        <label for="inputOverallFuelEconomy" class="col col-form-label fw-bold">Consumo medio:</label>
+                        <label for="inputOverallFuelEconomy" class="col col-form-label fw-bold">Overall F. Economy:</label>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" id="inputOverallFuelEconomy" name="overall_fuel_economy">
+                        <input type="number" class="form-control" id="inputOverallFuelEconomy" name="overall_fuel_economy" [(ngModel)]="vForm.value.overall_fuel_economy">
                     </div>
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Añadir vehículo</button>
+        <button type="submit" class="btn btn-primary">Insert Vehicle</button>
     </form>
 </div>
