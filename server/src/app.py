@@ -8,16 +8,21 @@ app = Flask(__name__)
 CORS(app)
 
 
+@app.route("/testModel")
+def find_model():
+    data = request.json
+    print(data["model"])
+    return mc.model_exists(data["model"])
+
+
 @app.route("/")
 def load_index():
     return mc.get_rand_vehicles()
 
 
-@app.route("/getSpecs", methods=["POST"])
-def get_specs():
-    data = request.json
-    specs_returned = mc.get_vehicle_specs(data["id"])
-    return specs_returned
+@app.route("/getVehicleById/<plate_number>", methods=["GET"])
+def get_vehicle(plate_number):
+    return mc.get_vehicle_by_id(plate_number)
 
 
 @app.route("/getStatus", methods=["GET"])
@@ -25,9 +30,22 @@ def get_status():
     return mc.get_status_names()
 
 
-@app.route("/getVehicleById/<plate_number>", methods=["GET"])
-def get_vehicle(plate_number):
-    return mc.get_vehicle_by_id(plate_number)
+@app.route("/insertVehicle", methods=["POST"])
+def new_vehicle():
+    data = request.json
+
+    new_vehicle = {
+        "plate_number": data["plate_number"],
+        "vehicle_type": data["vehicle_type"],
+        "color": data["color"],
+        "price": data["price"],
+        "status": data["status"],
+        "img_url": data["img_url"],
+        "model": data["model"],
+        "brand": data["brand"],
+    }
+
+    return mc.insert_model(new_vehicle)
 
 
 if __name__ == "__main__":
