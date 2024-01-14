@@ -37,7 +37,7 @@
                       <label for="inputPrice" class="col col-form-label fw-bold">Price:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputPrice" [value]="vehicle.price" readonly>
+                      <input type="text" class="form-control" id="inputPrice" [value]="vehicle.price | number: '1.2-2':'es'" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -83,7 +83,7 @@
                       <label for="inputHeight" class="col col-form-label fw-bold">Height:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputHeight" [value]="vehicle.specs.height" readonly>
+                      <input type="text" class="form-control" id="inputHeight" [value]="vehicle.specs.height | number: '1.2-2':'es'" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -91,7 +91,7 @@
                       <label for="inputWidth" class="col col-form-label fw-bold">Width:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputWidth" [value]="vehicle.specs.width" readonly>
+                      <input type="text" class="form-control" id="inputWidth" [value]="vehicle.specs.width | number: '1.2-2':'es'" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -99,7 +99,7 @@
                       <label for="inputLength" class="col col-form-label fw-bold">Length:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputLength" [value]="vehicle.specs.length" readonly>
+                      <input type="text" class="form-control" id="inputLength" [value]="vehicle.specs.length | number: '1.2-2':'es'" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -107,7 +107,7 @@
                       <label for="inputMaxPot" class="col col-form-label fw-bold">Max Potency:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputMaxPot" [value]="vehicle.specs.max_potency" readonly>
+                      <input type="text" class="form-control" id="inputMaxPot" [value]="vehicle.specs.max_potency | number: '1.2-2':'es'" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -123,7 +123,7 @@
                     <label for="inputAxisDistance" class="col col-form-label fw-bold">Axis Distance:</label>
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" id="inputAxisDistance" [value]="vehicle.specs.axis_distance" readonly>
+                    <input type="text" class="form-control" id="inputAxisDistance" [value]="vehicle.specs.axis_distance | number: '1.2-2':'es'" readonly>
                 </div>
             </div>
               <div class="row mb-3">
@@ -165,7 +165,7 @@
                       <label for="inputTare" class="col col-form-label fw-bold">Tare:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputTare" [value]="vehicle.specs.tare" readonly>
+                      <input type="text" class="form-control" id="inputTare" [value]="vehicle.specs.tare | number: '1.2-2':'es'" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -173,7 +173,7 @@
                       <label for="inputWeigthRating" class="col col-form-label fw-bold">GVWR:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputWeigthRating" [value]="vehicle.specs.gross_vehicle_weight_rating" readonly>
+                      <input type="text" class="form-control" id="inputWeigthRating" [value]="vehicle.specs.gross_vehicle_weight_rating | number: '1.2-2':'es'" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -197,7 +197,7 @@
                       <label for="inputUrbanFuelEconomy" class="col col-form-label fw-bold">Urban Fuel Economy:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputUrbanFuelEconomy" [value]="vehicle.specs.urban_fuel_economy" readonly>
+                      <input type="text" class="form-control" id="inputUrbanFuelEconomy" [value]="vehicle.specs.urban_fuel_economy | number: '1.2-2':'es'" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -205,7 +205,7 @@
                       <label for="inputExtraUrbanFuelEconomy" class="col col-form-label fw-bold">Extra Urban Fuel Economy:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputExtraUrbanFuelEconomy" [value]="vehicle.specs.extra_urban_fuel_economy" readonly>
+                      <input type="text" class="form-control" id="inputExtraUrbanFuelEconomy" [value]="vehicle.specs.extra_urban_fuel_economy | number: '1.2-2':'es'" readonly>
                   </div>
               </div>
               <div class="row mb-3">
@@ -213,7 +213,7 @@
                       <label for="inputOverallUrbanFuelEconomy" class="col col-form-label fw-bold">Overall Fuel Economy:</label>
                   </div>
                   <div class="col">
-                      <input type="text" class="form-control" id="inputOverallUrbanFuelEconomy" [value]="vehicle.specs.overall_fuel_economy" readonly>
+                      <input type="text" class="form-control" id="inputOverallUrbanFuelEconomy" [value]="vehicle.specs.overall_fuel_economy | number: '1.2-2':'es'" readonly>
                   </div>
               </div>
           </div>
