@@ -168,3 +168,38 @@ def get_types():
 
 def get_statuses():
     return get_dict(Status.select())
+
+def edit_vehicle(data):
+    v_plate_number = data['plate_number']
+    new_color = data['color']
+    new_price = data['price']
+    found_status = get_dict(
+        Status.select().where(Status.status == data['status'])
+    )[0]
+
+    Vehicle.update(price = new_price, color = new_color,
+                    status = found_status['id_status']).where(Vehicle.plate_number == v_plate_number).execute()
+    
+    return "Vehicle updated"
+
+def filter_vehicles(filters):
+    status_to_find = (
+        get_dict(Status.select().where(Status.status == filters['status']))[0]
+        if get_dict(Status.select().where(Status.status == filters['status']))
+        else None
+    )
+    type_to_find = (
+        get_dict(Vtype.select().where(Vtype.vehicle_type == filters['vehicle_type']))[0]
+        if get_dict(Vtype.select().where(Vtype.vehicle_type == filters['vehicle_type']))
+        else None
+    )
+
+    brand_to_find = (
+        get_dict(Brand.select().where(Brand.name == filters['brand']))[0]
+        if get_dict(Brand.select().where(Brand.name == filters['brand']))
+        else None
+    )
+    
+
+
+

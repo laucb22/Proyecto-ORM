@@ -4,6 +4,34 @@
             <h1>All Vehicles</h1>
         </div>
     </div>
+    <hr>
+    <div class="row">
+      <div class="col">
+        
+        <form #vForm ="ngForm" (ngSubmit) = "onSubmit(vForm.value)">
+          <div class="row">
+            <div class="col">
+              <select class="form-select" aria-label="Select status" name="status" [(ngModel)]="vForm.value.status">
+                  <option *ngFor="let status of statuses" [value]="status.status">{{ status.status }}</option>
+              </select>                    
+          </div>
+          <div class="col">
+            <select class="form-select" aria-label="Select type" name="brand" [(ngModel)]="vForm.value.brand">
+                <option *ngFor="let brand of brands" [value]="brand.name">{{ brand.name }}</option>
+            </select>                    
+        </div>
+        <div class="col">
+          <select class="form-select" aria-label="Select type" name="vehicle_type" [(ngModel)]="vForm.value.vehicle_type">
+              <option selected>Seleccione tipo...</option>
+              <option *ngFor="let type of types" [value]="type.vehicle_type">{{ type.vehicle_type }}</option>
+          </select>                    
+        </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Filter</button>
+          <button class="btn btn-success ms-5" (click) = "clearFilters()">Clear Filters</button>
+        </form>
+      </div>
+    </div>
     <div class="row">
         <div class="col">
             <table class="table">
