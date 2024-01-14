@@ -37,7 +37,7 @@
                         <label for="inputPrice" class="col col-form-label fw-bold">Price:</label>
                     </div>
                     <div class="col">
-                        <input [ngModel]="vehiclePrice | number: '1.2-2':'es'" (ngModelChange)="vehiclePrice=$event" name="price" type="text" class="form-control" id="inputPrice">
+                        <input type="text" class="form-control" id="inputPrice" name="price" [(ngModel)]="vehiclePrice">
                     </div>
                 </div>
                 <div class="row mb-3">
