@@ -34,6 +34,12 @@
                     <td>
                         <button class="btn btn-danger" (click)="onDelete(vehicle.plate_number)">Delete</button>
                     </td>
+                    <td>
+                      <button class="btn btn-primary" [routerLink]="['/vehicle-detail', vehicle.plate_number]">Details</button>
+                    </td>
+                    <td>
+                      <button class="btn btn-success" [routerLink]="['/vehicle-edit', vehicle.plate_number]">Edit</button>
+                    </td>
                   </tr>
                 </tbody>
               </table>

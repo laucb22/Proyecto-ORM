@@ -11,6 +11,7 @@ import { InsertVehicleComponent } from './insert-vehicle/insert-vehicle.componen
 import { FooterComponent } from './footer/footer.component';
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { FormsModule }   from '@angular/forms';
+import { EditVehicleComponent } from './edit-vehicle/edit-vehicle.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FormsModule }   from '@angular/forms';
     NavbarComponent,
     InsertVehicleComponent,
     FooterComponent,
-    VehicleListComponent
+    VehicleListComponent,
+    EditVehicleComponent
   ],
   imports: [
     BrowserModule,
