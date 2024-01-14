@@ -41,7 +41,7 @@ export class ApiService {
     return this.http.get<any[]>("http://localhost:5000/getStatuses")
   }
 
-  filterVehicles(): Observable<any[]>{
-    return this.http.get<any[]>("http://localhost:5000/filter")
+  filterVehicles(filters: any): Observable<any[]>{
+    return this.http.post<any[]>("http://localhost:5000/filter", filters)
   }
 }

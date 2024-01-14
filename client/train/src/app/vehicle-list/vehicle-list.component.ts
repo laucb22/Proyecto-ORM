@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-vehicle-list',
   templateUrl: './vehicle-list.component.html',
@@ -32,22 +33,27 @@ export class VehicleListComponent implements OnInit  {
   onDelete(plateNumber: string){
     this.api.deleteVehicle(plateNumber).subscribe(
       response => {
-        console.log('Vehicle deleted successfully', response);
+        console.log(this.vehicles)
       },
       error => {
         console.error('Error deleting vehicle', error);
       }
     );
+    this.refresh()
   }
 
   onSubmit(value: any){
-    console.log(value)
+    this.api.filterVehicles(value).subscribe(
+      response => {
+        this.vehicles = response
+      },
+      error => {
+        console.error("Error filtering", error)
+      }
+    )
   }
-  clearFilters(){
-    console.log("CLEARING")
-    this.api.getAllVehicles().subscribe((data: any[]) => {
-      this.vehicles = data
-    })
+  refresh(){
+    window.location.reload();
   }
 
 }

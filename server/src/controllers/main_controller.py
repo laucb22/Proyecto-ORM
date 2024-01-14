@@ -183,22 +183,40 @@ def edit_vehicle(data):
     return "Vehicle updated"
 
 def filter_vehicles(filters):
-    status_to_find = (
+    id_status = None
+    id_type = None
+    if "status" in filters:
+        status_to_find = (
         get_dict(Status.select().where(Status.status == filters['status']))[0]
         if get_dict(Status.select().where(Status.status == filters['status']))
         else None
-    )
-    type_to_find = (
+        )
+        id_status = status_to_find['id_status']
+
+    if "vehicle_type" in filters:
+        type_to_find = (
         get_dict(Vtype.select().where(Vtype.vehicle_type == filters['vehicle_type']))[0]
         if get_dict(Vtype.select().where(Vtype.vehicle_type == filters['vehicle_type']))
         else None
-    )
+        )
+        id_type = type_to_find['id_type']
+    
+    if id_status and id_type:
+        filtered_vehicles = get_dict(Vehicle.select().where(Vehicle.status == status_to_find['id_status'],
+                                Vehicle.vehicle_type == type_to_find["id_type"]))
+    elif id_status and id_type is None:
+        filtered_vehicles = get_dict(Vehicle.select().where(Vehicle.status == status_to_find['id_status']))
+    
+    elif id_status is None and id_type:
+        filtered_vehicles = get_dict(Vehicle.select().where(Vehicle.vehicle_type == type_to_find['id_type']))
+    
+    else: 
+        filtered_vehicles = None
+    if filtered_vehicles:
+        return filtered_vehicles
+    else:
+        return "No vehicles found (lie)"
 
-    brand_to_find = (
-        get_dict(Brand.select().where(Brand.name == filters['brand']))[0]
-        if get_dict(Brand.select().where(Brand.name == filters['brand']))
-        else None
-    )
     
 
 

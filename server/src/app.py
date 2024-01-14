@@ -83,9 +83,10 @@ def get_types():
 def get_statuses():
     return mc.get_statuses()
 
-@app.route("/filter", methods=['GET'])
+@app.route("/filter", methods=['POST'])
 def filter_data():
     filters = request.json
+    return mc.filter_vehicles(filters)
     
 if __name__ == "__main__":
     app()
