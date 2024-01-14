@@ -15,6 +15,7 @@ export class EditVehicleComponent {
   vehicleColor: string = '';
   vehicleStatus: string = '';
   vehiclePrice: any = '';
+  statuses: any[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private apiService: ApiService) {}
 
@@ -34,6 +35,9 @@ export class EditVehicleComponent {
   ngOnInit() {
     this.plateNumber = this.route.snapshot.paramMap.get('plateNumber');
     console.log(this.plateNumber);
+    this.apiService.getStatuses().subscribe((data: any[]) =>{
+      this.statuses = data
+    })
     this.apiService.getVehicleById(this.plateNumber).subscribe(
       data => {
         this.vehicle = data[0];
