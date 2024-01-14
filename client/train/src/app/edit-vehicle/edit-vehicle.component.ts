@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-vehicle',
@@ -15,7 +16,7 @@ export class EditVehicleComponent {
   vehicleStatus: string = '';
   vehiclePrice: any = '';
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
+  constructor(private router: Router, private route: ActivatedRoute, private apiService: ApiService) {}
 
   onSubmit(value: any){
     console.log(value);
@@ -27,6 +28,7 @@ export class EditVehicleComponent {
         console.error('API Error:', error);
       }
     );
+    this.router.navigate(['/home']);
   }
 
   ngOnInit() {
