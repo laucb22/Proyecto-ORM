@@ -149,7 +149,6 @@
                     </div>
                     <div class="col">
                         <select class="form-select" aria-label="Select type" name="vehicle_type" [(ngModel)]="vForm.value.vehicle_type">
-                            <option selected>Seleccione tipo...</option>
                             <option *ngFor="let type of types" [value]="type.vehicle_type">{{ type.vehicle_type }}</option>
                         </select>                    
                     </div>
