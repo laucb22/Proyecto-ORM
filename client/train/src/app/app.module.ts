@@ -6,12 +6,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ApiService } from './api.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { InsertVehicleComponent } from './insert-vehicle/insert-vehicle.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    InsertVehicleComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
